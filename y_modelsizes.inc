@@ -48,6 +48,99 @@
 
 #pragma compress 0
 
+
+#define VERSION_3C 				3
+#define VERSION_3C_R5 			4
+#define VERSION_037_RC1         5
+#define VERSION_037_RC2         6
+#define VERSION_037_RC3         7
+#define VERSION_037_RC4         8
+IsSAMPObject(modelid)
+{
+	if(modelid == 18631) return 1;
+	
+	// 0.3c objects
+	if(modelid >= 18632 && modelid <= 19163)
+	{
+	    return 1;
+	}
+	
+	// 0.3c-R5 objects
+	if(modelid >= 19164 && modelid <= 19521)
+	{
+	    return 1;
+	}
+	
+	// 0.3.7-RC1 objects
+	if(modelid >= 19522 && modelid <= 19787)
+	{
+		return 1;
+	}
+	
+	// 0.3.7-RC2 objects
+	if(modelid >= 19788 && modelid <= 19870)
+	{
+	    return 1;
+	}
+	
+	// 0.3.7-RC3 objects
+	if(modelid >= 19871 && modelid <= 19999 || modelid >= 11682 && modelid <= 11691)
+	{
+	    return 1;
+	}
+	
+	// 0.3.7-RC4 objects
+	if(modelid >= 11962 && modelid <= 11753)
+	{
+	    return 1;
+	}
+	
+	return 0;
+}
+
+GetSAMPObjectVersion(modelid)
+{
+	if(modelid == 18631) return 1;
+
+	// 0.3c objects
+	if(modelid >= 18632 && modelid <= 19163)
+	{
+	    return VERSION_3C;
+	}
+
+	// 0.3c-R5 objects
+	if(modelid >= 19164 && modelid <= 19521)
+	{
+	    return VERSION_3C_R5;
+	}
+
+	// 0.3.7-RC1 objects
+	if(modelid >= 19522 && modelid <= 19787)
+	{
+		return VERSION_037_RC1;
+	}
+
+	// 0.3.7-RC2 objects
+	if(modelid >= 19788 && modelid <= 19870)
+	{
+	    return VERSION_037_RC2;
+	}
+
+	// 0.3.7-RC3 objects
+	if(modelid >= 19871 && modelid <= 19999 || modelid >= 11682 && modelid <= 11691)
+	{
+	    return VERSION_037_RC3;
+	}
+
+	// 0.3.7-RC4 objects
+	if(modelid >= 11962 && modelid <= 11753)
+	{
+	    return VERSION_037_RC4;
+	}
+
+	return 0;
+}
+
 stock const
 	/*
 		This array lists all the radii of the collision spheres for all the GTA
